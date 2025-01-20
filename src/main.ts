@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createHead } from '@unhead/vue'
+import { DataLoaderPlugin } from 'unplugin-vue-router/data-loaders'
 import App from '@/App.vue'
 import router from '@/router'
 import pinia from '@/stores'
@@ -26,6 +27,7 @@ const app = createApp(App)
 const head = createHead()
 
 app.use(head)
+app.use(DataLoaderPlugin, { router }) 
 app.use(router)
 app.use(pinia)
 app.use(i18n)
